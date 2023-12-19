@@ -39,7 +39,8 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
                         src={BASE_URL + data.image.preview}
                         fill
                         className="object-cover rounded-md"
-                        loading='eager'
+                        loading='lazy'
+                        priority
                         alt={data.name}
                     />
                 </div>

@@ -20,7 +20,7 @@ export const Screeshots = ({ screenshots }: ScreenshotsProps) => {
                             className='object-cover bg-secondary'
                             src={BASE_URL + item.preview}
                             alt='screenshot'
-                            loading='lazy'
+                            priority
                         />
                     </div>
                 ))}
