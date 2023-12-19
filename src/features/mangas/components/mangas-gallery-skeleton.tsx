@@ -1,10 +1,8 @@
-'use client'
-
 import { Skeleton } from "@/components/ui"
 import { ContentCardSkeleton } from "@/features/content/components/content-card-skeleton"
 import { twMerge } from "tailwind-merge"
 
-export const MangasGallerySkeleton = ({ className }: { className?: string }) => {
+export const MangasGallerySkeleton =  ({ className }: { className?: string }) => {
     return (
         <div>
             <Skeleton className="h-10 w-96 mb-4 mt-10" />
