@@ -40,7 +40,6 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
                         fill
                         className="object-cover rounded-md"
                         loading='lazy'
-                        priority
                         alt={data.name}
                     />
                 </div>

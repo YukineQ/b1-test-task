@@ -16,11 +16,11 @@ export const Screeshots = ({ screenshots }: ScreenshotsProps) => {
                 {screenshots.map((item, index) => (
                     <div key={'screenshot' + index} className='h-44 w-44 relative overflow-hidden'>
                         <Image
-                            fill
+                            width={176}
+                            height={176}
                             className='object-cover bg-secondary'
                             src={BASE_URL + item.preview}
                             alt='screenshot'
-                            priority
                         />
                     </div>
                 ))}
