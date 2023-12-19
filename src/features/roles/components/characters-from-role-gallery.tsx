@@ -21,7 +21,7 @@ export const CharactersFromRolesGallery = ({ roles }: CharactersFromRolesGallery
                         <div className='h-20 w-20 rounded-full relative overflow-hidden'>
                             <Image
                                 fill
-                                className='object-cover bg-secondary animate-pulse'
+                                className='object-cover bg-secondary'
                                 src={BASE_URL + item.image.preview}
                                 alt={item.name}
                                 loading='lazy'

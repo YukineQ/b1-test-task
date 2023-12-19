@@ -36,7 +36,7 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
             <div className="relative flex rounded-md">
                 <div className="w-full h-[230px]">
                     <Image
-                        src={BASE_URL + data.image.original}
+                        src={BASE_URL + data.image.preview}
                         fill
                         className="object-cover rounded-md"
                         loading='eager'

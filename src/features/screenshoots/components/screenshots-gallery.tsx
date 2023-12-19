@@ -17,8 +17,8 @@ export const Screeshots = ({ screenshots }: ScreenshotsProps) => {
                     <div key={'screenshot' + index} className='h-44 w-44 relative overflow-hidden'>
                         <Image
                             fill
-                            className='object-cover bg-secondary animate-pulse'
-                            src={BASE_URL + item.original}
+                            className='object-cover bg-secondary'
+                            src={BASE_URL + item.preview}
                             alt='screenshot'
                             loading='lazy'
                         />
