@@ -1,12 +1,15 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge';
-import { Spinner } from '..';
+
+import { Spinner } from '@/components/ui/spinner';
 
 const variants = {
-    default: 'bg-secondary text-white',
-    accent: 'bg-[#EA003D] text-white shadow',
+    default: 'bg-secondary text-white hover:bg-secondary/70',
+    accent: 'bg-danger text-white shadow hover:bg-danger/80',
     outline: 'border border-white/10 text-white hover:border-white/50',
-    muted: 'bg-muted-secondary text-white'
+    muted: 'bg-muted-secondary text-white',
+    bright: 'bg-bright',
+    ghost: 'bg-transparent text-white hover:opacity-80'
 }
 
 const sizes = {

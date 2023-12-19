@@ -2,11 +2,11 @@
 
 import { Button } from "@/components/ui/button/button";
 import React from "react";
-import { ContentCard } from "@/components/content-card";
-import { useMangas } from "../api/get-mangas";
+import { ContentCard } from "@/features/content/components/content-card";
+import { useMangasInfinite } from "../api/get-mangas";
 
 export const MangasList = () => {
-    const { data: mangas, fetchNextPage, hasNextPage } = useMangas({
+    const { data: mangas, fetchNextPage, hasNextPage } = useMangasInfinite({
         limit: 28,
         order: 'popularity'
     })
@@ -18,6 +18,7 @@ export const MangasList = () => {
             <React.Fragment key={'page' + idx}>
                 {page.map(manga => (
                     <ContentCard
+                        link=""
                         key={manga.id}
                         data={manga}
                     />

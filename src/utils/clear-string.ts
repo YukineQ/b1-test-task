@@ -1,0 +1,1 @@
+export const clearString = (str: string, replaceChar: string) => str.replace(/[^A-Za-z]+/g, replaceChar)

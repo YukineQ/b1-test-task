@@ -12,7 +12,8 @@ type SeparatorProps = {
 
 export const Separator = ({ direction = 'horizontal', className }: SeparatorProps) => {
     return (
-        <div role='separator'
+        <div
+            role='separator'
             className={twMerge(
                 "relative border-white/10",
                 directions[direction],

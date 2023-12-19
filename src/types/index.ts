@@ -29,3 +29,25 @@ export type ContentParamsBase = {
     genre: number[];
     search: string;
 }
+
+export type MainNavItem = {
+    title: string;
+    href: string;
+    disabled?: boolean;
+}
+
+export type Linkable = {}
+export type LinkedType = 'Anime'
+    | 'Manga'
+    | 'Ranobe'
+    | 'Character'
+    | 'Person'
+    | 'Club'
+    | 'ClubPage'
+    | 'Critique'
+    | 'Review'
+    | 'Contest'
+    | 'CosplayGallery'
+    | 'Collection'
+    | 'Article'
+    | null;

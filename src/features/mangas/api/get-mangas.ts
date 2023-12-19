@@ -1,13 +1,13 @@
-import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
+import { useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
 
 import { axios } from "@/lib/axios"
 import { Manga, MangaParams } from "../types"
 
 export const getMangas = (params: Partial<MangaParams>): Promise<Manga[]> => {
-    return axios.get('/api/mangas', { params: params })
+    return axios.get('/mangas', { params: params })
 }
 
-export const useMangas = (params: Partial<MangaParams>) => {
+export const useMangasInfinite = (params: Partial<MangaParams>) => {
     return useSuspenseInfiniteQuery({
         queryKey: ['mangas', params],
         queryFn: (data) => getMangas({ ...params, page: data.pageParam }),
@@ -16,5 +16,12 @@ export const useMangas = (params: Partial<MangaParams>) => {
             return lastPageParams + 1
         },
         retry: false,
+    })
+}
+
+export const useMangas = (params: Partial<MangaParams>) => {
+    return useSuspenseQuery({
+        queryKey: ['mangas', params],
+        queryFn: () => getMangas(params)
     })
 }

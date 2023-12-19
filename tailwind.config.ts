@@ -12,7 +12,9 @@ const config: Config = {
       colors: {
         'primary': 'hsl(var(--primary), <alpha-value>)',
         'secondary': 'hsl(var(--secondary), <alpha-value>)',
-        'muted-secondary': 'hsl(var(--muted-secondary), <alpha-value>)'
+        'muted-secondary': 'hsl(var(--muted-secondary), <alpha-value>)',
+        'danger': 'hsl(var(--danger), <alpha-value>)',
+        'bright': 'hsl(var(--bright), <alpha-value>)',
       },
     },
   },

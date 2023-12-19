@@ -1,38 +1,34 @@
 'use client'
 
-import { useAnimes } from "../api/get-animes"
-import { Button } from "@/components/ui/button/button";
 import React from "react";
-import { useShareModal } from "../hooks/use-share-modal";
-import { ContentCard } from "@/components/content-card";
 
-export const AnimesList = () => {
-    const { data: animes, fetchNextPage, hasNextPage } = useAnimes({
+import { Button } from "@/components/ui/button/button";
+import { ContentList } from "@/features/content/components/content-list";
+import { ContentParamsBase } from "@/types";
+import { useAnimeListPagination } from "../api";
+import { AnimeFilter } from "./anime-filter";
+import { AnimeCard } from "./anime-card";
+
+type AnimeListProps = {
+    query: Partial<ContentParamsBase>;
+}
+
+export const AnimesList = ({ query }: AnimeListProps) => {
+    const { data: animes, fetchNextPage, hasNextPage } = useAnimeListPagination({
+        ...query,
         limit: 28,
-        order: 'popularity'
     })
-    const shareAnime = useShareModal()
-
-    if (!animes) return null
-
-    const renderAnimes = () => {
-        return animes.pages.map((page, idx) => (
-            <React.Fragment key={'page' + idx}>
-                {page.map(anime => (
-                    <ContentCard
-                        key={anime.id}
-                        data={anime}
-                    />
-                ))}
-            </React.Fragment>
-        ))
-    }
 
     return (
         <>
-            <div className="grid grid-cols-7 gap-3">
-                {renderAnimes()}
+            <div className="pb-10">
+                <AnimeFilter />
             </div>
+            <ContentList data={animes}>
+                {(item) => (
+                    <AnimeCard data={item} />
+                )}
+            </ContentList>
             <Button
                 variant='outline'
                 onClick={() => fetchNextPage()}

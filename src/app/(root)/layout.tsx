@@ -1,4 +1,5 @@
-import { Header } from "@/components/layout/header";
+import { MainNav } from "@/components/main-nav";
+import { layoutConfig } from "@/config/layout";
 
 export default function RootLayout({
     children
@@ -7,7 +8,7 @@ export default function RootLayout({
 }) {
     return (
         <>
-            <Header />
+            <MainNav items={layoutConfig.mainNav} />
             <main className="max-w-6xl mx-auto py-8">{children}</main>
         </>
     )

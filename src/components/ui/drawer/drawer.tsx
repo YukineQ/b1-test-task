@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { IoIosClose } from 'react-icons/io'
@@ -16,6 +18,7 @@ export type DrawerProps = {
     children: React.ReactNode;
     size?: keyof typeof sizes;
     renderFooter?: () => React.ReactNode;
+    initialFocus?: React.MutableRefObject<null>;
 }
 
 export const Drawer = ({
@@ -25,6 +28,7 @@ export const Drawer = ({
     onClose,
     renderFooter,
     size = 'xs',
+    initialFocus,
 }: DrawerProps) => {
     return (
         <Transition appear show={isOpen} as={React.Fragment}>
@@ -32,6 +36,7 @@ export const Drawer = ({
                 as='div'
                 className='relative z-10'
                 onClose={onClose}
+                initialFocus={initialFocus}
             >
                 <div className='absolute inset-0 overflow-hidden'>
                     <Dialog.Overlay className='absolute inset-0' />
@@ -63,12 +68,14 @@ export const Drawer = ({
                                         transform 
                                         overflow-hidden 
                                         rounded-2xl 
-                                        bg-[#202122]
+                                        bg-primary
                                         text-left 
                                         align-middle 
                                         shadow-xl 
                                         transition-all
                                         p-6
+                                        border
+                                        border-white/10
                                     `,
                                         sizes[size]
                                     )}

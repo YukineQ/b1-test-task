@@ -5,6 +5,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'shikimori.one'
+            },
+            {
+                protocol: 'https',
+                hostname: 'desu.shikimori.one'
             }
         ],
         domains: ['https://shikimori.one']

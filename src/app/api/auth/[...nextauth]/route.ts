@@ -1,15 +1,6 @@
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 
-import Shikimori from "@/providers/shikimori";
-
-const authOptions: AuthOptions = {
-    providers: [
-        Shikimori({
-            clientId: 'qiY_yWBsGlFUm74WXk9fThWbbDjoB_w437r5GC10w1w',
-            clientSecret: 'uslyjINgzy3sENqlC-ZfnKvGVO3ewCWMyH96_mkOHTM'
-        })
-    ]
-}
+import { authOptions } from "@/lib/auth";
 
 const handler = NextAuth(authOptions)
 

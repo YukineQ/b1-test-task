@@ -3,14 +3,32 @@
 @tailwind utilities;
 
 :root {
-    --primary: 220, 6%, 10%;
-    --secondary: 210, 3%, 13%;
-    --muted-secondary: 210, 3%, 19%;
+    --primary: 251, 28%, 8%;
+    --secondary: 253, 26%, 14%;
+    --muted-secondary: 254, 23%, 22%;
+    --danger: 344, 100%, 46%;
+    --bright: 210, 40%, 98%;
 }
 
 html,
 body,
 :root {
     height: 100%;
-    background-color: hsl(220, 6%, 10%);
+    background-color: #100e19;
 }
+
+.layout-blur {
+    position: absolute;
+    width: 60%;
+    height: 260px;
+    top: 0px;
+    z-index: 0;
+    right: 30%;
+    pointer-events: none;
+    border-radius: 180px 20px;
+    opacity: 0.14;
+    box-shadow: rgb(244, 59, 231) 20px 250px 80px;
+    transform: rotate(15deg) translateY(-175%) translateZ(0px);
+    transition: opacity 1.5s cubic-bezier(0.17, 0.17, 0, 1) 0s;
+}
+
