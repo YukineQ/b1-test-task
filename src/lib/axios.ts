@@ -11,10 +11,10 @@ export const axios = Axios.create({
 
 axios.interceptors.request.use(
     async (config) => {
-        // const session = await getSession()
-        // if (session) {
-        //     config.headers.Authorization = `Bearer ${session.user.accessToken}`
-        // }
+        const session = await getSession()
+        if (session) {
+            config.headers.Authorization = `Bearer ${session.user.accessToken}`
+        }
 
         config.headers.Accept = 'application/json';
         return config;
@@ -25,9 +25,9 @@ axios.interceptors.response.use(
         return response.data
     },
     (error) => {
-        if (error.response.status === 404) {
-            return notFound()
-        }
+        // if (error.response.status === 404) {
+        //     return notFound()
+        // }
         return Promise.reject(error)
     }
 )

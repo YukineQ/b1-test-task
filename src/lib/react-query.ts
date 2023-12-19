@@ -5,7 +5,7 @@ export const queryConfig: DefaultOptions = {
         refetchOnMount: false,
         refetchOnWindowFocus: false,
         refetchOnReconnect: false,
-        retry: false,
+        retry: 0,
         retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000)
     }
 }

@@ -20,7 +20,7 @@ export const Auth = () => {
     console.log(data?.user.accessToken)
     if (data?.user) {
         return (
-            <div className='inline-flex items-center justify-center gap-4'>
+            <div className='inline-flex items-center justify-center gap-4 w-fit'>
                 <IconButton
                     size='md'
                     content='Notifications'

@@ -14,13 +14,14 @@ export const Screeshots = ({ screenshots }: ScreenshotsProps) => {
             <GalleryTitle>Screenshots</GalleryTitle>
             <GalleryScrollContainer>
                 {screenshots.map((item, index) => (
-                    <div key={'screenshot' + index} className='h-44 w-44 relative overflow-hidden'>
+                    <div key={'screenshot' + index} className='relative overflow-hidden'>
                         <Image
                             width={176}
                             height={176}
-                            className='object-cover bg-secondary'
+                            className='object-cover'
                             src={BASE_URL + item.preview}
-                            alt='screenshot'
+                            alt='screenshots'
+                            loading='lazy'
                         />
                     </div>
                 ))}

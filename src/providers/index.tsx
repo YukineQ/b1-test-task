@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import { QueryClientProvider, QueryClient, QueryErrorResetBoundary } from '@tanstack/react-query'
 import { ErrorBoundary } from 'react-error-boundary'
 import { Toaster } from 'react-hot-toast'
 
@@ -36,15 +36,19 @@ export function AppProvider({
     const [queryClient] = React.useState(() => new QueryClient({ defaultOptions: queryConfig }))
 
     return (
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <QueryClientProvider client={queryClient}>
-                <ShareModal />
-                <Toaster />
-                {/* <ScrollTop /> */}
-                <SessionProvider>
-                    <body>{children}</body>
-                </SessionProvider>
-            </QueryClientProvider>
-        </ErrorBoundary>
+        <QueryErrorResetBoundary>
+            {({ reset }) => (
+                <ErrorBoundary onReset={reset} FallbackComponent={ErrorFallback}>
+                    <QueryClientProvider client={queryClient}>
+                        <ShareModal />
+                        <Toaster />
+                        {/* <ScrollTop /> */}
+                        <SessionProvider>
+                            <body>{children}</body>
+                        </SessionProvider>
+                    </QueryClientProvider>
+                </ErrorBoundary>
+            )}
+        </QueryErrorResetBoundary>
     )
 }
