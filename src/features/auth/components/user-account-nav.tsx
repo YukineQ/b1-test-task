@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 
 import { User } from 'next-auth';
-import { Menu, MenuButton, MenuItem, MenuItems, Separator } from '@/components/ui';
+import { IconButton, Menu, MenuButton, MenuItem, MenuItems, Separator } from '@/components/ui';
+import { Icons } from '@/components/icons';
 
 type UserAccountNavProps = {
     user: User;
@@ -9,7 +12,13 @@ type UserAccountNavProps = {
 
 export const UserAccountNav = ({ user }: UserAccountNavProps) => {
     return (
-        <>
+        <div className='inline-flex items-center justify-center gap-4'>
+            <IconButton
+                size='md'
+                content='Notifications'
+                direction='bottom'
+                Icon={Icons.bellRing}
+            />
             <Menu>
                 <MenuButton className='p-0'>
                     <Image
@@ -50,6 +59,6 @@ export const UserAccountNav = ({ user }: UserAccountNavProps) => {
                     </MenuItem>
                 </MenuItems>
             </Menu >
-        </>
+        </div>
     )
 }

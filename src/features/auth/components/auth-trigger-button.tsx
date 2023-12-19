@@ -15,7 +15,7 @@ export const AuthTriggerButton = () => {
         <TriggeredDrawer
             title='Sign in with shikimori'
             triggerButton={
-                <Button size='sm'>
+                <Button size='sm' className='w-fit'>
                     Shikimori sign in
                 </Button>
             }
