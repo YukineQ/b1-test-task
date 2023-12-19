@@ -21,7 +21,7 @@ export const Screeshots = ({ screenshots }: ScreenshotsProps) => {
                             className='object-cover'
                             src={BASE_URL + item.preview}
                             alt='screenshots'
-                            loading='lazy'
+                            loading={index < 7 ? 'eager' : 'lazy'}
                         />
                     </div>
                 ))}
