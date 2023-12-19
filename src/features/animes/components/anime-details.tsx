@@ -32,6 +32,7 @@ export const AnimeDetails = ({ animeId }: AnimeDetailsProps) => {
                         alt={anime.name}
                         width={200}
                         height={300}
+                        priority
                     />
                     <div className='p-6 bg-secondary rounded-lg min-h-[320px]'>
                         <div className='flex flex-col space-y-5'>
