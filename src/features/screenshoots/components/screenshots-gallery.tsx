@@ -8,20 +8,19 @@ type ScreenshotsProps = {
     screenshots: Screenshot[];
 }
 
-export const Screeshots = ({ screenshots }: ScreenshotsProps) => {
+export const ScreeshotsGallery = ({ screenshots }: ScreenshotsProps) => {
     return (
         <Gallery>
             <GalleryTitle>Screenshots</GalleryTitle>
             <GalleryScrollContainer>
                 {screenshots.map((item, index) => (
-                    <div key={'screenshot' + index} className='relative overflow-hidden'>
+                    <div key={'screenshot' + index} className='relative overflow-hidden h-44 w-44'>
                         <Image
-                            width={176}
-                            height={176}
+                            fill
                             className='object-cover'
                             src={BASE_URL + item.preview}
                             alt='screenshots'
-                            priority={index < 7}
+                            priority={index < 6}
                         />
                     </div>
                 ))}

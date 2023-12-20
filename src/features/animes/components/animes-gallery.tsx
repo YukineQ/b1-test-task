@@ -1,8 +1,7 @@
 'use client'
 
-import { ContentCard } from "@/features/content/components/content-card";
 import { Gallery, GalleryLink, GalleryScrollContainer } from "@/components/gallery";
-import { ROUTES, RoutePath } from "@/config/routes";
+import { RoutePath } from "@/config/routes";
 import { objectToParamsQuery } from "@/utils/objectToQuery";
 import { AnimeParams } from "../types";
 import { useAnimeList } from "../api";

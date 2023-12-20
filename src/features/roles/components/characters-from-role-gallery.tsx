@@ -16,7 +16,7 @@ export const CharactersFromRolesGallery = ({ roles }: CharactersFromRolesGallery
         <Gallery>
             <GalleryTitle>Characters</GalleryTitle>
             <GalleryScrollContainer arrowClassName='top-[22%]'>
-                {characters.map((item) => (
+                {characters.map((item, index) => (
                     <div key={item.id} className='flex flex-col items-center justify-center h-fit space-y-1.5'>
                         <div className='h-20 w-20 rounded-full relative overflow-hidden'>
                             <Image
@@ -24,7 +24,7 @@ export const CharactersFromRolesGallery = ({ roles }: CharactersFromRolesGallery
                                 className='object-cover bg-secondary'
                                 src={BASE_URL + item.image.preview}
                                 alt={item.name}
-                                loading='lazy'
+                                priority={index < 12}
                             />
                         </div>
                         <p className='text-white/80 text-center text-sm font-semibold'>{item.name}</p>

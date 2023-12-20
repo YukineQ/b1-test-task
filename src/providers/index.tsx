@@ -7,8 +7,6 @@ import { Toaster } from 'react-hot-toast'
 
 import { ShareModal } from '@/features/share/components/share-modal'
 import { Button } from '@/components/ui'
-import { ScrollTop } from '@/hooks/use-scroll-top'
-import { SessionProvider } from 'next-auth/react'
 import { queryConfig } from '@/lib/react-query'
 
 const ErrorFallback = () => {
@@ -43,9 +41,7 @@ export function AppProvider({
                         <ShareModal />
                         <Toaster />
                         {/* <ScrollTop /> */}
-                        <SessionProvider>
-                            <body>{children}</body>
-                        </SessionProvider>
+                        <body>{children}</body>
                     </QueryClientProvider>
                 </ErrorBoundary>
             )}

@@ -12,14 +12,11 @@ const Gallery = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <div
         ref={ref}
-        className={twMerge(
-            '',
-            className
-        )}
+        className={twMerge(className)}
         {...props}
     />
 ))
-Gallery.displayName='Gallery'
+Gallery.displayName = 'Gallery'
 
 type GalleryLinkProps = {
     className?: string;
@@ -54,7 +51,7 @@ const GalleryTitle = React.forwardRef<
         {...props}
     />
 ))
-GalleryTitle.displayName='GalleryTitle'
+GalleryTitle.displayName = 'GalleryTitle'
 
 type GalleryScrollContainerProps = {
     children: React.ReactElement | React.ReactElement[];
@@ -95,7 +92,7 @@ const RightArrow = ({ className }: { className?: string }) => {
 
 const LeftArrow = ({ className }: { className?: string }) => {
     const { isFirstItemVisible, scrollPrev } = React.useContext(VisibilityContext)
-    
+
     if (isFirstItemVisible) return null
 
     return (
