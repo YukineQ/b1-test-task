@@ -8,6 +8,7 @@ import { Icons } from '../../../components/icons';
 import { IconButton } from '../../../components/ui';
 import React from 'react';
 import { Transition } from '@headlessui/react';
+import { Share } from '@/features/share';
 
 export type ContentCardProps = {
     data: ContentEntityBase;
@@ -38,8 +39,8 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
                     <Image
                         src={BASE_URL + data.image.preview}
                         fill
-                        className="object-cover rounded-md"
-                        loading='lazy'
+                        className="object-cover rounded-md bg-secondary"
+                        priority
                         alt={data.name}
                     />
                 </div>
@@ -65,14 +66,13 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
                     >
                         <div className="relative flex flex-col h-full items-start justify-end">
                             <div className="absolute flex flex-col right-0 top-0 text-white gap-2">
-                                <IconButton
-                                    size='sm'
-                                    Icon={Icons.link}
-                                    content="Share"
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                    }}
-                                />
+                                <Share data={data}>
+                                    <IconButton
+                                        size='sm'
+                                        Icon={Icons.link}
+                                        content="Share"
+                                    />
+                                </Share>
                                 <IconButton
                                     size='sm'
                                     Icon={Icons.sparkles}

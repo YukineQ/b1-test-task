@@ -17,7 +17,7 @@ export const ScreeshotsGallery = ({ screenshots }: ScreenshotsProps) => {
                     <div key={'screenshot' + index} className='relative overflow-hidden h-44 w-44'>
                         <Image
                             fill
-                            className='object-cover'
+                            className='object-cover bg-secondary'
                             src={BASE_URL + item.preview}
                             alt='screenshots'
                             priority={index < 6}

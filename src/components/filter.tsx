@@ -2,7 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation"
 import qs from "query-string";
-import { Button, Select, SelectPropsPassThrough } from "./ui";
+import { Button, Select, SelectPropsPassThrough, Skeleton } from "./ui";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { Gallery, GalleryScrollContainer } from "./gallery";
@@ -103,4 +103,16 @@ const FilterButtonArray = ({ data, valueKey }: FilterButtonArrayProps) => {
     )
 }
 
-export { Filter, FilterSelect, FilterButtonArray }
+const FilterButtonArrayLoader = () => {
+    return (
+        <Gallery>
+            <GalleryScrollContainer arrowClassName="hidden" scrollContainerClassName="px-0 py-2">
+                {Array(12).fill({}).map((_, index) => (
+                    <Skeleton key={index} className="h-8 w-20 bg-primary" />
+                ))}
+            </GalleryScrollContainer>
+        </Gallery>
+    )
+}
+
+export { Filter, FilterSelect, FilterButtonArray, FilterButtonArrayLoader }

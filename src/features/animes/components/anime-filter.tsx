@@ -1,13 +1,12 @@
 'use client'
 
-import { Filter, FilterButtonArray, FilterSelect } from "@/components/filter"
+import { Filter, FilterButtonArray, FilterButtonArrayLoader, FilterSelect } from "@/components/filter"
 import { filterConfig } from "../config/filterConfig"
 import { useGenres } from "@/features/genre/api/get-genres"
 
 export const AnimeFilter = () => {
-    const { data: genres } = useGenres({ entry_type: 'Anime' })
-    console.log(genres)
-    if (!genres) return null
+    const { data: genres, isLoading } = useGenres({ entry_type: 'Anime' })
+
     return (
         <Filter className="flex flex-col">
             <div className="flex flex-row gap-2">
@@ -32,10 +31,13 @@ export const AnimeFilter = () => {
                     options={filterConfig.ByScore.options}
                 />
             </div>
-            <FilterButtonArray
-                valueKey="genre"
-                data={genres}
-            />
+            {isLoading && <FilterButtonArrayLoader />}
+            {genres && (
+                <FilterButtonArray
+                    valueKey="genre"
+                    data={genres}
+                />
+            )}
         </Filter>
     )
 }
