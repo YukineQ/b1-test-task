@@ -1,7 +1,7 @@
 'use client'
 
 import { Icons } from "@/components/icons";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui";
+import { Alert, AlertDescription, AlertTitle, Skeleton } from "@/components/ui";
 import { AnimesGallery } from "@/features/animes/components/animes-gallery"
 import { MangasGallerySkeleton } from "@/features/mangas/components/mangas-gallery-skeleton";
 import dynamic from "next/dynamic";

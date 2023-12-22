@@ -22,7 +22,7 @@ export const Image = ({ fromBaseApi = true, src, ...props }: ImageProps) => {
                     onLoad={() => setIsLoaded(true)}
                     onError={() => setIsBroken(true)}
                     sizes='100vw'
-                    className={twMerge(!isLoaded ? 'opacity-0' : 'opacity-100', 'transition')}
+                    className={twMerge(!isLoaded ? 'opacity-0' : 'opacity-100')}
                     {...props}
                 />
                 {!isLoaded &&

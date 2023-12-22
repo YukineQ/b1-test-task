@@ -18,7 +18,16 @@ const config: Config = {
       },
       boxShadow: {
         'bottom': '0 2px 0 rgba(255, 255, 255, 0.7), 0 4px 0 rgba(225, 225, 225, 0.5)'
-      }
+      },
+      keyframes: {
+        skeleton: {
+          '0%, 100%': { backgroundColor: 'hsl(253, 26%, 14%);' },
+          '50%': { backgroundColor: 'hsl(255, 25%, 19%);' },
+        },
+      },
+      animation: {
+        skeleton: 'skeleton 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;',
+      },
     },
   },
   plugins: [],
