@@ -24,7 +24,7 @@ export const Image = ({ fromBaseApi = true, src, ...props }: ImageProps) => {
                     {...props}
                 />
                 {!isLoaded &&
-                    (<Skeleton className='w-full h-full rounded-none animate-none' />)}
+                    (<Skeleton className='w-full h-full rounded-none' />)}
             </>
         )
     }
