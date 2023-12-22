@@ -23,7 +23,7 @@ export const SearchResult = ({
     if (!animes.length && !mangas.length) return <h3 className="text-white font-medium text-lg">No results</h3>
 
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap w-full">
             {animes.map((item) => (
                 <ResultCard
                     key={item.id}
@@ -56,7 +56,7 @@ type ResultCardProps = {
 const ResultCard = ({ data, Icon, link, onClick }: ResultCardProps) => {
     return (
         <Link href={link} onClick={onClick} className="flex gap-2 w-1/2 py-3 group">
-            <Icon className="text-danger" />
+            <Icon className="text-danger shrink-0" />
             <div className="flex flex-col items-start">
                 <span className="text-white text-sm font-medium text-left pr-2 group-hover:text-danger transition-colors">
                     {data.name}

@@ -72,7 +72,7 @@ export const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
                                             />
                                             <div className="flex items-center justify-center w-full">
                                                 {!!search && (
-                                                    <Suspense fallback={<Spinner size='sm' />}>
+                                                    <Suspense key={search} fallback={<Spinner size='sm' />}>
                                                         <SearchResult
                                                             search={debouncedSearch}
                                                             closeModal={handleClose}

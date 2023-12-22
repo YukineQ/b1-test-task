@@ -39,7 +39,7 @@ export const ContentCard = ({ data, link, imagePriority }: ContentCardProps) => 
                     <Image
                         src={data.image.preview}
                         fill
-                        className="object-cover rounded-md bg-secondary"
+                        className="object-cover"
                         priority={imagePriority}
                         alt={data.name}
                     />
