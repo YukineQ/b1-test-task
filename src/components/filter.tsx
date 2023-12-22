@@ -40,7 +40,10 @@ type FilterProps = React.HTMLAttributes<HTMLDivElement>
 const Filter = ({ className, ...props }: FilterProps) => {
     return (
         <div
-            className={twMerge('flex flex-row w-full gap-3 bg-secondary p-3 rounded-xl shadow', className)}
+            className={twMerge(
+                'flex flex-row w-full gap-3 bg-secondary p-3 rounded-xl shadow',
+                className
+            )}
             {...props}
         />
     )

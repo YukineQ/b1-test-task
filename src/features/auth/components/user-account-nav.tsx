@@ -12,15 +12,15 @@ type UserAccountNavProps = {
 
 export const UserAccountNav = ({ user }: UserAccountNavProps) => {
     return (
-        <div className='inline-flex items-center justify-center gap-4'>
+        <div className='flex items-center justify-center gap-6 -mb-1'>
             <IconButton
-                size='md'
                 content='Notifications'
                 direction='bottom'
-                Icon={Icons.bellRing}
-            />
+            >
+                <Icons.bellRing size={19}/>
+            </IconButton>
             <Menu>
-                <MenuButton className='p-0'>
+                <MenuButton >
                     <Image
                         width={26}
                         height={26}

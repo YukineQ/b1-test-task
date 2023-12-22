@@ -21,10 +21,11 @@ export const AnimesGallery = ({ query, label }: AnimesGalleryProps) => {
         <Gallery>
             <GalleryLink href={linkToAnimes}>{label}</GalleryLink>
             <GalleryScrollContainer>
-                {animes.map((item) => (
+                {animes.map((item, index) => (
                     <AnimeCard
                         key={item.id}
                         data={item}
+                        imagePriority={index < 7}
                     />
                 ))}
             </GalleryScrollContainer>

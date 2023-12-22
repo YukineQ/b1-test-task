@@ -5,6 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui";
 import { AnimesGallery } from "@/features/animes/components/animes-gallery"
 import { MangasGallerySkeleton } from "@/features/mangas/components/mangas-gallery-skeleton";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const MangasGallery = dynamic(() => import("@/features/mangas/components/mangas-gallery")
     .then(module => module.MangasGallery),
@@ -16,7 +17,7 @@ const MangasGallery = dynamic(() => import("@/features/mangas/components/mangas-
 
 export default function HomePage() {
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col justify-center gap-6">
             <Alert variant="info">
                 <Icons.alert />
                 <AlertTitle>Dev mode</AlertTitle>

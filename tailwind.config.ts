@@ -16,6 +16,9 @@ const config: Config = {
         'danger': 'hsl(var(--danger), <alpha-value>)',
         'bright': 'hsl(var(--bright), <alpha-value>)',
       },
+      boxShadow: {
+        'bottom': '0 2px 0 rgba(255, 255, 255, 0.7), 0 4px 0 rgba(225, 225, 225, 0.5)'
+      }
     },
   },
   plugins: [],

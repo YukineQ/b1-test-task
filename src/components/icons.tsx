@@ -10,6 +10,10 @@ import {
     ChevronUp,
     ChevronDown,
     BellRing,
+    Search,
+    X,
+    Shell,
+    BookA,
 } from 'lucide-react'
 
 export const Icons = {
@@ -24,4 +28,8 @@ export const Icons = {
     chevronUp: ChevronUp,
     chevronDown: ChevronDown,
     bellRing: BellRing,
+    search: Search,
+    cross: X,
+    shell: Shell,
+    book: BookA,
 }

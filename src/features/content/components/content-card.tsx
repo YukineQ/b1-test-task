@@ -1,11 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { formatDate } from '@/utils/format';
 import { ContentEntityBase } from "@/types"
-import { BASE_URL } from '@/config/api';
-import { Icons } from '../../../components/icons';
-import { IconButton } from '../../../components/ui';
+import { Icons } from '@/components/icons';
+import { IconButton, Image } from '@/components/ui';
 import React from 'react';
 import { Transition } from '@headlessui/react';
 import { Share } from '@/features/share';
@@ -13,9 +11,10 @@ import { Share } from '@/features/share';
 export type ContentCardProps = {
     data: ContentEntityBase;
     link: string;
+    imagePriority?: boolean;
 }
 
-export const ContentCard = ({ data, link }: ContentCardProps) => {
+export const ContentCard = ({ data, link, imagePriority }: ContentCardProps) => {
     const [isVisible, setIsVisible] = React.useState(false)
 
     return (
@@ -29,18 +28,19 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
                 gap-2 
                 group 
                 hover:scale-105 
+                will-change-transform
                 transition
                 duration-300
                 w-[149px] 
             "
         >
-            <div className="relative flex rounded-md">
+            <div className="relative flex rounded-md overflow-hidden">
                 <div className="w-full h-[230px]">
                     <Image
-                        src={BASE_URL + data.image.preview}
+                        src={data.image.preview}
                         fill
                         className="object-cover rounded-md bg-secondary"
-                        priority
+                        priority={imagePriority}
                         alt={data.name}
                     />
                 </div>
@@ -67,17 +67,13 @@ export const ContentCard = ({ data, link }: ContentCardProps) => {
                         <div className="relative flex flex-col h-full items-start justify-end">
                             <div className="absolute flex flex-col right-0 top-0 text-white gap-2">
                                 <Share data={data}>
-                                    <IconButton
-                                        size='sm'
-                                        Icon={Icons.link}
-                                        content="Share"
-                                    />
+                                    <IconButton content="Share">
+                                        <Icons.link size={20} />
+                                    </IconButton>
                                 </Share>
-                                <IconButton
-                                    size='sm'
-                                    Icon={Icons.sparkles}
-                                    content="Similar"
-                                />
+                                <IconButton content="Similar">
+                                    <Icons.sparkles size={20} />
+                                </IconButton>
                             </div>
                             <div className="inline-flex items-center justify-center gap-1 text-white">
                                 <Icons.star fill='white' size={18} />

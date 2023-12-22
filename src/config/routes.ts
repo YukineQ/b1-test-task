@@ -14,5 +14,9 @@ export const ROUTES = {
     ANIME_SIMILAR: {
         route: '/animes/:animeID/similar',
         getRoute: (animeId: number) => `/animes/${animeId}/similar` as const
-    }
+    },
+    MANGA_DETAILS: {
+        route: '/mangas/:mangaID',
+        getRoute: (mangaId: number) => `/mangas/${mangaId}` as const
+    },
 }

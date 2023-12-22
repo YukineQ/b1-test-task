@@ -13,6 +13,11 @@ export const layoutConfig = {
         {
             title: 'Mangas',
             href: RoutePath.Manga,
+        },
+        {
+            title: 'Light Novel',
+            href: '#',
+            disabled: true,
         }
     ]
 }

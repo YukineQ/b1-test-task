@@ -1,11 +1,12 @@
-import { DefaultOptions } from "@tanstack/react-query";
+import { DefaultOptions, keepPreviousData } from "@tanstack/react-query";
 
 export const queryConfig: DefaultOptions = {
     queries: {
         refetchOnMount: false,
         refetchOnWindowFocus: false,
         refetchOnReconnect: false,
-        retry: 0,
-        retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000)
+        retry: false,
+        retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+        placeholderData: keepPreviousData,
     }
 }

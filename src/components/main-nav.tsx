@@ -5,6 +5,8 @@ import { siteConfig } from '@/config/site';
 import { twMerge } from 'tailwind-merge';
 
 import { Auth } from '@/features/auth/components';
+import { IconButton } from './ui';
+import { Search } from '@/features/search/components';
 
 type MainNavProps = {
     items?: MainNavItem[];
@@ -36,7 +38,10 @@ export const MainNav = ({ items, children }: MainNavProps) => {
                             ))}
                         </nav>
                     ) : null}
-                    <Auth />
+                    <div className='inline-flex items-center justify-center gap-2'>
+                        <Search />
+                        <Auth />
+                    </div>
                 </div>
             </div>
         </header>
