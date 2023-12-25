@@ -6,28 +6,32 @@ import { twMerge } from 'tailwind-merge';
 
 type ImageProps = NextImageProps & {
     fromBaseApi?: boolean;
+    className?: string;
 }
 
-export const Image = ({ fromBaseApi = true, src, ...props }: ImageProps) => {
+export const Image = ({ fromBaseApi = true, src, className, ...props }: ImageProps) => {
     const [isLoaded, setIsLoaded] = React.useState(false)
     const [isBroken, setIsBroken] = React.useState(false)
 
-    const srcSource = fromBaseApi ? BASE_URL + src : src
+    const pathToImage = fromBaseApi ? BASE_URL + src : src
 
     if (!isBroken) {
         return (
-            <>
+            <div className={twMerge('transition-opacity', className)}>
                 <NextImage
-                    src={srcSource}
+                    src={pathToImage}
                     onLoad={() => setIsLoaded(true)}
                     onError={() => setIsBroken(true)}
                     sizes='100vw'
-                    className={twMerge(!isLoaded ? 'opacity-0' : 'opacity-100')}
+                    className={twMerge(
+                        'opacity-0 transition-opacity',
+                        isLoaded && 'opacity-100',
+                    )}
                     {...props}
                 />
                 {!isLoaded &&
-                    (<Skeleton className='w-full h-full rounded-none animate-none' />)}
-            </>
+                    (<Skeleton className='w-full h-full rounded-none' />)}
+            </div>
         )
     }
     return (

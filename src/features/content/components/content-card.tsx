@@ -37,7 +37,7 @@ export const ContentCard = ({ data, link, imagePriority }: ContentCardProps) => 
             <div className="relative flex rounded-md overflow-hidden">
                 <div className="w-full h-[230px]">
                     <Image
-                        src={data.image.preview}
+                        src={data.image.original}
                         fill
                         className="object-cover"
                         priority={imagePriority}

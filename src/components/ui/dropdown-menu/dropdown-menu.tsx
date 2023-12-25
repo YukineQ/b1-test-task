@@ -44,7 +44,7 @@ const MenuItems = ({ className, ...props }: MenuItemsProps<React.ElementType>) =
         >
             <UIMenu.Items
                 className={twMerge(
-                    'absolute p-1 right-0 mt-2 origin-top bg-secondary rounded-md border border-white/10 py-1.5 text-white/70 w-52 z-50 shadow',
+                    'absolute p-1 right-0 mt-2 origin-top bg-primary rounded-md border border-white/10 py-1.5 text-white/70 w-52 z-50 shadow',
                     className
                 )}
             >

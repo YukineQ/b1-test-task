@@ -20,7 +20,7 @@ export const UserAccountNav = ({ user }: UserAccountNavProps) => {
                 <Icons.bellRing size={19}/>
             </IconButton>
             <Menu>
-                <MenuButton >
+                <MenuButton>
                     <Image
                         width={26}
                         height={26}
