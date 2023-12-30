@@ -1,7 +1,7 @@
 import {
     Command,
-    ChevronRight,
-    ChevronLeft,
+    ArrowLeft,
+    ArrowRight,
     Link,
     Sparkles,
     Star,
@@ -18,8 +18,8 @@ import {
 
 export const Icons = {
     logo: Command,
-    arrowLeft: ChevronLeft,
-    arrowRight: ChevronRight,
+    arrowLeft: ArrowLeft,
+    arrowRight: ArrowRight,
     link: Link,
     sparkles: Sparkles,
     star: Star,

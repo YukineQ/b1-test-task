@@ -18,7 +18,7 @@ const MangasGallery = dynamic(() => import("@/features/mangas/components/mangas-
 export default function HomePage() {
     return (
         <div className="flex flex-col justify-center gap-6">
-            <Alert variant="info">
+            <Alert>
                 <Icons.alert />
                 <AlertTitle>Dev mode</AlertTitle>
                 <AlertDescription>
@@ -26,10 +26,10 @@ export default function HomePage() {
                     If you have any suggestions, please, let as know.
                 </AlertDescription>
             </Alert>
-            <AnimesGallery query={{ order: 'popularity' }} label="Most popular animes" />
-            <AnimesGallery query={{ order: 'ranked' }} label="Top ranked animes" />
-            <MangasGallery query={{ kind: 'manga', order: 'popularity' }} label="Most popular manga" />
-            <MangasGallery query={{ kind: 'one_shot', order: 'popularity' }} label="One shot manga" />
+            <AnimesGallery query={{ order: 'popularity' }} title="Most popular animes" />
+            <AnimesGallery query={{ order: 'ranked' }} title="Top ranked animes" />
+            <MangasGallery query={{ kind: 'manga', order: 'popularity' }} title="Most popular manga" />
+            <MangasGallery query={{ kind: 'one_shot', order: 'popularity' }} title="One shot manga" />
         </div>
     )
 }

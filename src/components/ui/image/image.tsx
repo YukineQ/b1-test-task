@@ -17,14 +17,14 @@ export const Image = ({ fromBaseApi = true, src, className, ...props }: ImagePro
 
     if (!isBroken) {
         return (
-            <div className={twMerge('transition-opacity', className)}>
+            <div className={twMerge('transition-opacity relative overflow-hidden', className)}>
                 <NextImage
                     src={pathToImage}
                     onLoad={() => setIsLoaded(true)}
                     onError={() => setIsBroken(true)}
                     sizes='100vw'
                     className={twMerge(
-                        'opacity-0 transition-opacity',
+                        'opacity-0 transition-opacity object-cover',
                         isLoaded && 'opacity-100',
                     )}
                     {...props}
@@ -34,6 +34,7 @@ export const Image = ({ fromBaseApi = true, src, className, ...props }: ImagePro
             </div>
         )
     }
+    
     return (
         <span>
             Error

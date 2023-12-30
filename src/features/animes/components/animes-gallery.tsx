@@ -1,34 +1,28 @@
 'use client'
 
-import { Gallery, GalleryLink, GalleryScrollContainer } from "@/components/gallery";
 import { RoutePath } from "@/config/routes";
 import { objectToParamsQuery } from "@/utils/objectToQuery";
 import { AnimeParams } from "../types";
 import { useAnimeList } from "../api";
 import { AnimeCard } from "./anime-card";
+import { ContentCarousel } from "@/features/content/components/content-carousel";
 
 type AnimesGalleryProps = {
     query: Partial<AnimeParams>;
-    label: string;
+    title: string;
 }
 
-export const AnimesGallery = ({ query, label }: AnimesGalleryProps) => {
+export const AnimesGallery = ({ query, title }: AnimesGalleryProps) => {
     const { data: animes } = useAnimeList({ ...query, limit: 21 })
 
     const linkToAnimes = `${RoutePath.Anime}?${objectToParamsQuery(query)}`
 
     return (
-        <Gallery>
-            <GalleryLink href={linkToAnimes}>{label}</GalleryLink>
-            <GalleryScrollContainer>
-                {animes.map((item, index) => (
-                    <AnimeCard
-                        key={item.id}
-                        data={item}
-                        imagePriority={index < 7}
-                    />
-                ))}
-            </GalleryScrollContainer>
-        </Gallery>
+        <ContentCarousel
+            data={animes}
+            CardComponent={AnimeCard}
+            title={title}
+            href={linkToAnimes}
+        />
     )
 }

@@ -32,6 +32,8 @@ export const Tooltip = ({
         setActive(false)
     }
 
+    if (!content) return null
+
     return (
         <div
             className="Tooltip-Wrapper"

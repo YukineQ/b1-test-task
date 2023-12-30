@@ -30,20 +30,19 @@ export const ContentCard = ({ data, link, imagePriority }: ContentCardProps) => 
                 hover:scale-105 
                 will-change-transform
                 transition
-                duration-300
+                duration-300 
+                ease-in-out
                 w-[149px] 
             "
         >
             <div className="relative flex rounded-md overflow-hidden">
-                <div className="w-full h-[230px]">
-                    <Image
-                        src={data.image.original}
-                        fill
-                        className="object-cover"
-                        priority={imagePriority}
-                        alt={data.name}
-                    />
-                </div>
+                <Image
+                    src={data.image.original}
+                    fill
+                    className="object-cover w-full h-[230px]"
+                    priority={imagePriority}
+                    alt={data.name}
+                />
                 <Transition
                     as={React.Fragment}
                     show={isVisible}

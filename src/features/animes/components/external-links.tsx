@@ -41,7 +41,7 @@ export const ExternalLinks = ({ animeId, className }: ExternalLinksProps) => {
                             </div>
                         }
                     >
-                        <Alert variant='info'>
+                        <Alert>
                             <Icons.alert />
                             <AlertDescription>
                                 Click here to be redirected to an external resource for more information.

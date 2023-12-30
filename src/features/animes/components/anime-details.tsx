@@ -34,7 +34,7 @@ export const AnimeDetails = ({ animeId }: AnimeDetailsProps) => {
                         height={300}
                         priority
                     />
-                    <div className='p-6 bg-secondary rounded-lg min-h-[320px]'>
+                    <div className='p-6 bg-secondary rounded-xl border border-white/10 min-h-[320px]'>
                         <div className='flex flex-col space-y-5'>
                             <div className='inline-flex gap-1'>
                                 <div className='w-40 text-sm text-white/80'>Studios</div>
@@ -65,7 +65,7 @@ export const AnimeDetails = ({ animeId }: AnimeDetailsProps) => {
                         </div>
                     </div>
                 </div>
-                <div className='p-6 bg-secondary rounded-lg flex-1 min-h-[320px]'>
+                <div className='p-6 bg-secondary rounded-xl border border-white/10 flex-1 min-h-[320px]'>
                     <div className='flex flex-col'>
                         <h6 className='text-lg text-white/70'>Dubbers</h6>
                         <List amountToRender={10} emptyTitle='No dubbers'>
@@ -77,9 +77,9 @@ export const AnimeDetails = ({ animeId }: AnimeDetailsProps) => {
                         </List>
                     </div>
                 </div>
-                <div className='p-6 bg-secondary rounded-lg min-h-[320px]'>
+                <div className='p-6 bg-secondary rounded-xl border border-white/10 min-h-[320px]'>
                     <div className='flex flex-col space-y-4'>
-                        <div className='bg-primary rounded-lg py-3 px-4 inline-flex gap-4 shrink-0'>
+                        <div className='bg-primary rounded-xl border border-white/10 py-3 px-4 inline-flex gap-4 shrink-0'>
                             <div className='p-4 inline-flex items-center justify-center shrink-0 bg-secondary rounded-md text-white text-3xl font-bold'>
                                 {anime.score}
                             </div>

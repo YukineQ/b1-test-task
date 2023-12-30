@@ -64,14 +64,14 @@ export const Drawer = ({
                             >
                                 <Dialog.Panel
                                     className={twMerge(`
-                                        w-full 
+                                        w-full
                                         transform 
                                         overflow-hidden 
                                         rounded-2xl 
                                         bg-primary
                                         text-left 
                                         align-middle 
-                                        shadow-xl 
+                                        shadow-xl
                                         transition-all
                                         p-6
                                         border

@@ -7,16 +7,12 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
         <footer className={twMerge(className)}>
             <div
                 className="
-                    max-w-6xl 
-                    mx-auto 
                     flex 
                     flex-col 
                     items-center 
                     justify-center
-                    border-t 
-                    border-white/10
-                    h-24
-                    gap-2
+                    h-28
+                    gap-2 bg-secondary
                 "
             >
                 <div className="flex flex-row items-center gap-2 text-white">

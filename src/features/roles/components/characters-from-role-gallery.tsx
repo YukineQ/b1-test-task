@@ -1,7 +1,6 @@
-import Image from 'next/image'
-import { Gallery, GalleryScrollContainer, GalleryTitle } from "@/components/gallery";
 import { BASE_URL } from '@/config/api';
 import { Role } from '../types';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselTitle, Image } from '@/components/ui';
 
 type CharactersFromRolesGalleryProps = {
     roles: Role[];
@@ -13,24 +12,29 @@ export const CharactersFromRolesGallery = ({ roles }: CharactersFromRolesGallery
         .filter((character) => character)
 
     return (
-        <Gallery>
-            <GalleryTitle>Characters</GalleryTitle>
-            <GalleryScrollContainer arrowClassName='top-[22%]'>
+        <Carousel
+            opts={{
+                slidesToScroll: 12,
+                align: 'center'
+            }}
+        >
+            <CarouselTitle>Characters</CarouselTitle>
+            <CarouselContent>
                 {characters.map((item, index) => (
-                    <div key={item.id} className='flex flex-col items-center justify-center h-fit space-y-1.5'>
-                        <div className='h-20 w-20 rounded-full relative overflow-hidden'>
-                            <Image
-                                fill
-                                className='object-cover bg-secondary'
-                                src={BASE_URL + item.image.preview}
-                                alt={item.name}
-                                priority={index < 12}
-                            />
-                        </div>
-                        <p className='text-white/80 text-center text-sm font-semibold'>{item.name}</p>
-                    </div>
+                    <CarouselItem key={item.id} className='basis-[8.3333%] w-20 h-fit flex flex-col items-center justify-center space-y-1.5'>
+                        <Image
+                            fill
+                            className='object-cover bg-secondary h-20 w-20 rounded-full'
+                            src={item.image.preview}
+                            alt={item.name}
+                            priority={index < 12}
+                        />
+                        <p className='text-white/80 text-center text-sm font-semibold break-words'>{item.name}</p>
+                    </CarouselItem>
                 ))}
-            </GalleryScrollContainer>
-        </Gallery>
+            </CarouselContent>
+            <CarouselNext />
+            <CarouselPrevious />
+        </Carousel>
     )
 }

@@ -2,8 +2,7 @@ import React from 'react'
 import { twMerge } from "tailwind-merge";
 
 const alertVariants = {
-    default: 'border-secondary text-white',
-    info: 'border-blue-500 bg-blue-500/10 text-white',
+    default: 'border-secondary bg-secondary/40 text-white',
     error: 'border-red-500 bg-red-500/10 text-white'
 }
 

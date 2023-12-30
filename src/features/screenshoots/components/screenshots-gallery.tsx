@@ -1,10 +1,9 @@
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-import { Gallery, GalleryScrollContainer, GalleryTitle } from "@/components/gallery";
 import { BASE_URL } from '@/config/api';
 import { Screenshot } from '../types';
-import { Image } from '@/components/ui';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselTitle, Image } from '@/components/ui';
 
 type ScreenshotsProps = {
     screenshots: Screenshot[];
@@ -12,25 +11,32 @@ type ScreenshotsProps = {
 
 export const ScreeshotsGallery = ({ screenshots }: ScreenshotsProps) => {
     return (
-        <Gallery>
-            <GalleryTitle>Screenshots</GalleryTitle>
+        <Carousel
+            opts={{
+                slidesToScroll: 6,
+                align: 'center'
+            }}
+        >
+            <CarouselTitle>Screenshots</CarouselTitle>
             <PhotoProvider>
-                <GalleryScrollContainer>
+                <CarouselContent>
                     {screenshots.map((item, index) => (
                         <PhotoView key={index} src={BASE_URL + item.original}>
-                            <div className='relative overflow-hidden h-44 w-44'>
+                            <CarouselItem className='basis-[0.1428]'>
                                 <Image
                                     fill
-                                    className='object-cover'
-                                    src={BASE_URL + item.preview}
+                                    className='h-44 w-44 relative'
+                                    src={item.preview}
                                     alt='screenshots'
                                     priority={index < 6}
                                 />
-                            </div>
+                            </CarouselItem>
                         </PhotoView>
                     ))}
-                </GalleryScrollContainer>
+                </CarouselContent>
             </PhotoProvider>
-        </Gallery>
+            <CarouselNext />
+            <CarouselPrevious />
+        </Carousel>
     )
 }
